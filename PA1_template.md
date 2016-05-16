@@ -30,7 +30,9 @@ Loading and preprocessing the data
     hist(totalSteps$steps, main = paste("Total Steps Taken Each Day"), xlab = "Steps Every Day", col="orange")
 
 ![](PA1_template_files/figure-markdown_strict/unnamed-chunk-2-1.png)
-\#\# What is mean total number of steps taken per day?
+
+What is mean total number of steps taken per day?
+-------------------------------------------------
 
     mean(totalSteps$steps)
 

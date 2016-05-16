@@ -28,6 +28,7 @@ totalSteps <- aggregate(steps ~ date, data = data, na.rm = TRUE, sum)
 hist(totalSteps$steps, main = paste("Total Steps Taken Each Day"), xlab = "Steps Every Day", col="orange")
 
 ```
+
 ## What is mean total number of steps taken per day?
 
 ```{r}
