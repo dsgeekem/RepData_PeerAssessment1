@@ -16,7 +16,8 @@ The variables included in this dataset are:
 The dataset is stored in a comma-separated-value (CSV) file and there
 are a total of 17,568 observations in this dataset.
 
-**Code for reading in the dataset and/or processing the data**
+Loading and preprocessing the data
+----------------------------------
 
     setwd("~/Data Science/Reproducible Research")
     rm(list=ls())
@@ -29,8 +30,8 @@ are a total of 17,568 observations in this dataset.
     hist(totalSteps$steps, main = paste("Total Steps Taken Each Day"), xlab = "Steps Every Day", col="orange")
 
 ![](PA1_template_files/figure-markdown_strict/unnamed-chunk-2-1.png)
-
-**Mean and median number of steps taken each day**
+\#\# What is mean total number of steps taken per day? **Mean and median
+number of steps taken each day**
 
     mean(totalSteps$steps)
 
@@ -40,7 +41,8 @@ are a total of 17,568 observations in this dataset.
 
     ## [1] 10765
 
-**What is the average daily activity pattern?**
+What is the average daily activity pattern?
+-------------------------------------------
 
     stepsInterval <- aggregate(steps ~ interval, data = data, mean, na.rm = TRUE)
     plot(stepsInterval$interval,stepsInterval$steps, type="l", xlab="Interval", ylab="Number of Steps",main="Average Number of Steps per Day by Interval")
@@ -53,6 +55,9 @@ dataset, ** **contains the maximum number of steps?**
     stepsInterval[which.max(stepsInterval$steps), ]$interval
 
     ## [1] 835
+
+Imputing missing values
+-----------------------
 
 The following is the number of days/intervals where there are missing
 values (coded as NA). The presence of missing days may introduce bias
@@ -92,7 +97,8 @@ steps by:
 
     ## [1] 86129.51
 
-**The activity is different between weekdays and weekends.**
+Are there differences in activity patterns between weekdays and weekends?
+-------------------------------------------------------------------------
 
     library(lattice)
 

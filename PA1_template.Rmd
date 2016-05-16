@@ -15,7 +15,7 @@ The variables included in this dataset are:
 
 The dataset is stored in a comma-separated-value (CSV) file and there are a total of 17,568 observations in this dataset.
 
-**Code for reading in the dataset and/or processing the data**
+## Loading and preprocessing the data
 ```{r, echo=TRUE}
 setwd("~/Data Science/Reproducible Research")
 rm(list=ls())
@@ -28,7 +28,7 @@ totalSteps <- aggregate(steps ~ date, data = data, na.rm = TRUE, sum)
 hist(totalSteps$steps, main = paste("Total Steps Taken Each Day"), xlab = "Steps Every Day", col="orange")
 
 ```
-
+## What is mean total number of steps taken per day?
 **Mean and median number of steps taken each day**
 
 ```{r}
@@ -38,8 +38,7 @@ mean(totalSteps$steps)
 median(totalSteps$steps)
 
 ```
-
-**What is the average daily activity pattern?**
+## What is the average daily activity pattern?
 ```{r}
 stepsInterval <- aggregate(steps ~ interval, data = data, mean, na.rm = TRUE)
 plot(stepsInterval$interval,stepsInterval$steps, type="l", xlab="Interval", ylab="Number of Steps",main="Average Number of Steps per Day by Interval")
@@ -51,6 +50,8 @@ plot(stepsInterval$interval,stepsInterval$steps, type="l", xlab="Interval", ylab
 ```{r}
 stepsInterval[which.max(stepsInterval$steps), ]$interval
 ```
+## Imputing missing values
+
 The following is the number of days/intervals where there are missing values (coded as NA). The presence of missing days may introduce bias into some calculations or summaries of the data.  
 
 ```{r}
@@ -80,7 +81,7 @@ But imputing the data with the average did push up the total number of steps by:
 sum(newsteps$steps) - sum(totalSteps$steps)
 ```
 
-**The activity is different between weekdays and weekends.**
+## Are there differences in activity patterns between weekdays and weekends?
 ```{r}
 library(lattice)
 
