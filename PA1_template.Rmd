@@ -29,7 +29,6 @@ hist(totalSteps$steps, main = paste("Total Steps Taken Each Day"), xlab = "Steps
 
 ```
 ## What is mean total number of steps taken per day?
-**Mean and median number of steps taken each day**
 
 ```{r}
 
@@ -38,7 +37,7 @@ mean(totalSteps$steps)
 median(totalSteps$steps)
 
 ```
-## What is the average daily activity pattern?
+## What is the average daily activity pattern? ##
 ```{r}
 stepsInterval <- aggregate(steps ~ interval, data = data, mean, na.rm = TRUE)
 plot(stepsInterval$interval,stepsInterval$steps, type="l", xlab="Interval", ylab="Number of Steps",main="Average Number of Steps per Day by Interval")
